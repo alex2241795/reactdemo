@@ -1,4 +1,5 @@
 import { CounterWidget } from '../../../widgets/counter'
+import reactLogo from '../../../assets/react.svg'
 import './page.css'
 
 export function HomePage() {
@@ -9,7 +10,7 @@ export function HomePage() {
           <img src="/vite.svg" className="logo" alt="Vite logo" />
         </a>
         <a href="https://react.dev" target="_blank">
-          <img src="/src/assets/react.svg" className="logo react" alt="React logo" />
+          <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
       <h1>Vite + React</h1>
