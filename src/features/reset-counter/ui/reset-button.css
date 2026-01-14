@@ -1,0 +1,14 @@
+.reset-button {
+  background-color: #10B981; /* зеленый */
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 12px;
+}
+
+.reset-button:hover {
+  background-color: #059669;
+}

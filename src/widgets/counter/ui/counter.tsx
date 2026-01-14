@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import type { Counter } from '../../../entities/counter'
 import { CounterDisplay } from '../../../entities/counter'
+import { ResetButton } from '../../../features/reset-counter'
 
 export function CounterWidget() {
   const [counter, setCounter] = useState<Counter>({ value: 0 })
@@ -9,9 +10,16 @@ export function CounterWidget() {
     setCounter((prev) => ({ value: prev.value + 1 }))
   }
 
+  const handleReset = () => {
+    setCounter({ value: 0 })
+  }
+
   return (
-    <button onClick={handleIncrement}>
-      <CounterDisplay counter={counter} />
-    </button>
+    <div>
+      <button onClick={handleIncrement}>
+        <CounterDisplay counter={counter} />
+      </button>
+      <ResetButton onReset={handleReset} />
+    </div>
   )
 }
