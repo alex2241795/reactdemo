@@ -1,0 +1,285 @@
+/* ============================================
+   ACCORDION WIDGET STYLES
+   ============================================ */
+
+.accordion-widget {
+  width: 100%;
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+/* ============================================
+   WIDGET HEADER
+   ============================================ */
+
+.accordion-widget-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.accordion-widget-title {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.95);
+  line-height: 1.2;
+}
+
+/* ============================================
+   MODE SWITCH CONTROLS
+   WCAG SC 2.5.5: Target size AAA (44x44px)
+   ============================================ */
+
+.accordion-widget-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.mode-switch-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.mode-switch-group {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.25rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mode-switch-button {
+  min-height: 44px; /* WCAG AAA target size */
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  font-family: inherit;
+  color: rgba(255, 255, 255, 0.7);
+  background-color: transparent;
+  border: 2px solid transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.mode-switch-button:hover {
+  color: rgba(255, 255, 255, 0.95);
+  background-color: rgba(100, 108, 255, 0.15);
+}
+
+.mode-switch-button:focus-visible {
+  outline: 3px solid #646cff;
+  outline-offset: 2px;
+}
+
+.mode-switch-button.active,
+.mode-switch-button[aria-pressed="true"] {
+  color: #fff;
+  background-color: #646cff;
+  border-color: #646cff;
+}
+
+.mode-switch-button.active:hover {
+  background-color: #535bf2;
+  border-color: #535bf2;
+}
+
+/* ============================================
+   WIDGET DESCRIPTION
+   ============================================ */
+
+.accordion-widget-description {
+  margin: 0 0 1.5rem;
+  padding: 1rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(100, 108, 255, 0.08);
+  border-left: 4px solid #646cff;
+  border-radius: 4px;
+}
+
+/* ============================================
+   WIDGET FOOTER
+   ============================================ */
+
+.accordion-widget-footer {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.keyboard-hint {
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.keyboard-hint strong {
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 600;
+}
+
+/* ============================================
+   VISUALLY HIDDEN (for screen readers only)
+   WCAG SC 1.3.1: Info and Relationships
+   ============================================ */
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ============================================
+   LIGHT MODE
+   ============================================ */
+
+@media (prefers-color-scheme: light) {
+  .accordion-widget-title {
+    color: #1a1f2e;
+  }
+
+  .mode-switch-label {
+    color: #3a3f47;
+  }
+
+  .mode-switch-group {
+    background-color: rgba(0, 0, 0, 0.03);
+    border-color: rgba(0, 0, 0, 0.1);
+  }
+
+  .mode-switch-button {
+    color: #3a3f47;
+  }
+
+  .mode-switch-button:hover {
+    color: #1a1f2e;
+    background-color: rgba(100, 108, 255, 0.1);
+  }
+
+  .mode-switch-button.active,
+  .mode-switch-button[aria-pressed="true"] {
+    color: #fff;
+    background-color: #535bf2;
+    border-color: #535bf2;
+  }
+
+  .mode-switch-button.active:hover {
+    background-color: #646cff;
+    border-color: #646cff;
+  }
+
+  .accordion-widget-description {
+    color: #3a3f47;
+    background-color: rgba(100, 108, 255, 0.06);
+    border-left-color: #535bf2;
+  }
+
+  .accordion-widget-footer {
+    border-top-color: rgba(0, 0, 0, 0.1);
+  }
+
+  .keyboard-hint {
+    color: #5a5f67;
+  }
+
+  .keyboard-hint strong {
+    color: #2a2f37;
+  }
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 768px) {
+  .accordion-widget {
+    margin: 1.5rem auto;
+  }
+
+  .accordion-widget-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .accordion-widget-title {
+    font-size: 1.5rem;
+  }
+
+  .accordion-widget-controls {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .mode-switch-group {
+    width: 100%;
+  }
+
+  .mode-switch-button {
+    flex: 1;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .accordion-widget-title {
+    font-size: 1.3rem;
+  }
+
+  .accordion-widget-description {
+    font-size: 0.875rem;
+    padding: 0.875rem;
+  }
+
+  .keyboard-hint {
+    font-size: 0.8rem;
+  }
+}
+
+/* ============================================
+   REDUCED MOTION
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .mode-switch-button {
+    transition: none;
+  }
+}
+
+/* ============================================
+   HIGH CONTRAST MODE
+   ============================================ */
+
+@media (prefers-contrast: high) {
+  .mode-switch-group {
+    border-width: 2px;
+  }
+
+  .mode-switch-button.active {
+    border-width: 3px;
+  }
+
+  .accordion-widget-description {
+    border-left-width: 6px;
+  }
+}

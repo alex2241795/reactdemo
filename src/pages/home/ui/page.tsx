@@ -1,4 +1,5 @@
 import { CounterWidget } from '../../../widgets/counter'
+import { AccordionWidget } from '../../../widgets/accordion'
 import reactLogo from '../../../assets/react.svg'
 import viteLogo from '../../../assets/vite.svg'
 import './page.css'
@@ -21,6 +22,7 @@ export function HomePage() {
           Edit <code>src/pages/home/ui/page.tsx</code> and save to test HMR
         </p>
       </div>
+      <AccordionWidget />
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
