@@ -1,0 +1,235 @@
+/* ============================================
+   ACCESSIBLE ACCORDION COMPONENT STYLES
+   WCAG 2.2 Level AAA Compliant
+   ============================================ */
+
+.accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+  max-width: 800px;
+}
+
+/* ============================================
+   ACCORDION ITEM
+   ============================================ */
+
+.accordion-item {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  background-color: #1a1a1a;
+  overflow: hidden;
+  transition: border-color 0.2s ease;
+}
+
+.accordion-item:hover {
+  border-color: rgba(100, 108, 255, 0.5);
+}
+
+/* ============================================
+   ACCORDION HEADER & TRIGGER BUTTON
+   WCAG SC 2.5.5 (Target Size - AAA): min 44x44px
+   ============================================ */
+
+.accordion-header {
+  margin: 0;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+.accordion-trigger {
+  width: 100%;
+  min-height: 44px; /* WCAG AAA target size */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.87);
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* ============================================
+   HOVER & FOCUS STATES
+   WCAG SC 2.4.7 (Focus Visible)
+   WCAG SC 1.4.11 (Non-text Contrast - AAA): min 3:1
+   ============================================ */
+
+.accordion-trigger:hover {
+  background-color: rgba(100, 108, 255, 0.1);
+  color: #fff;
+}
+
+.accordion-trigger:focus {
+  outline: none;
+}
+
+.accordion-trigger:focus-visible {
+  outline: 3px solid #646cff;
+  outline-offset: -3px;
+  background-color: rgba(100, 108, 255, 0.15);
+}
+
+/* ============================================
+   ACCORDION TITLE & ICON
+   ============================================ */
+
+.accordion-title {
+  flex: 1;
+}
+
+.accordion-icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  color: rgba(255, 255, 255, 0.6);
+  transition: transform 0.25s ease, color 0.2s ease;
+}
+
+.accordion-trigger:hover .accordion-icon {
+  color: rgba(255, 255, 255, 0.87);
+}
+
+/* Icon rotation when open */
+.accordion-icon-open {
+  transform: rotate(180deg);
+}
+
+/* ============================================
+   ACCORDION PANEL
+   Smooth animation with reduced motion support
+   WCAG SC 2.3.3 (Animation from Interactions)
+   ============================================ */
+
+.accordion-panel {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.3s ease, opacity 0.25s ease, padding 0.3s ease;
+}
+
+.accordion-panel-open {
+  max-height: 2000px; /* Large enough for typical content */
+  opacity: 1;
+}
+
+.accordion-content {
+  padding: 0 1.5rem 1.5rem;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* ============================================
+   LIGHT MODE
+   WCAG SC 1.4.6 (Contrast Enhanced - AAA): min 7:1
+   ============================================ */
+
+@media (prefers-color-scheme: light) {
+  .accordion-item {
+    border-color: rgba(0, 0, 0, 0.15);
+    background-color: #ffffff;
+  }
+
+  .accordion-item:hover {
+    border-color: rgba(100, 108, 255, 0.6);
+  }
+
+  .accordion-trigger {
+    color: #213547;
+  }
+
+  .accordion-trigger:hover {
+    background-color: rgba(100, 108, 255, 0.08);
+    color: #1a1f2e;
+  }
+
+  .accordion-trigger:focus-visible {
+    outline-color: #535bf2;
+    background-color: rgba(100, 108, 255, 0.12);
+  }
+
+  .accordion-icon {
+    color: rgba(0, 0, 0, 0.5);
+  }
+
+  .accordion-trigger:hover .accordion-icon {
+    color: rgba(0, 0, 0, 0.75);
+  }
+
+  .accordion-content {
+    color: #3a3f47;
+  }
+}
+
+/* ============================================
+   REDUCED MOTION SUPPORT
+   WCAG SC 2.3.3 (Animation from Interactions)
+   Respects user's motion preferences
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .accordion-trigger,
+  .accordion-icon,
+  .accordion-panel {
+    transition: none;
+  }
+
+  .accordion-icon-open {
+    transform: rotate(180deg);
+    transition: none;
+  }
+
+  .accordion-panel-open {
+    max-height: none;
+  }
+}
+
+/* ============================================
+   HIGH CONTRAST MODE SUPPORT
+   Ensures visibility in Windows High Contrast
+   ============================================ */
+
+@media (prefers-contrast: high) {
+  .accordion-item {
+    border-width: 2px;
+  }
+
+  .accordion-trigger:focus-visible {
+    outline-width: 4px;
+    outline-offset: -4px;
+  }
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   Ensures accessibility on all screen sizes
+   ============================================ */
+
+@media (max-width: 640px) {
+  .accordion-trigger {
+    padding: 0.875rem 1rem;
+    font-size: 0.95rem;
+  }
+
+  .accordion-content {
+    padding: 0 1rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .accordion-icon {
+    width: 20px;
+    height: 20px;
+  }
+}
